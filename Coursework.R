@@ -1,8 +1,8 @@
 library(readr)
 library(ggplot2)
 library(reshape2)
-# osx dataset <- read_csv("Documents/GitHub/DataAnalyticsCW/dataset.csv")
-dataset <- read_csv("GitHub/DataAnalyticsCW/dataset.csv")
+dataset <- read_csv("Documents/GitHub/DataAnalyticsCW/dataset.csv")
+#dataset <- read_csv("GitHub/DataAnalyticsCW/dataset.csv")
 View(dataset)
 print(dataset)
 
@@ -15,6 +15,8 @@ ggplot(dataset, aes(x=Age, y=Part.B.Score)) + geom_point() + geom_smooth()
 ggplot(dataset, aes(x=Age, y=Completion.Time, color=Gender)) + geom_point() + geom_smooth() + facet_wrap(~ Gender)
 #Age x part C score x location
 ggplot(dataset, aes(x=Age, y=Part.C.Score, color=Location)) + geom_point() + geom_smooth() + facet_wrap(~ Location)
+#completion time x part B score x Gender
+ggplot(dataset, aes(x=Completion.Time, y=Part.B.Score, color=Gender)) + geom_point() + geom_smooth() + facet_wrap(~ Gender)
 
 
 #count completion time
@@ -67,12 +69,34 @@ ggplot(dataset, aes(x=Age, y=Part.B.Score)) + geom_point() + geom_smooth()
 ggplot(dataset, aes(x=Age, y=Part.C.Score)) + geom_point() + geom_smooth()
 
 
+#age x gender
+ggplot(dataset, aes(x=Gender, y=Age)) + geom_boxplot()
+#age x location
+ggplot(dataset, aes(x=Location, y=Age)) + geom_boxplot()
+
+
 #completion time x part A score
 ggplot(dataset, aes(x=Completion.Time, y=Part.A.Score)) + geom_point() + geom_smooth()
 #completion time x part B score
 ggplot(dataset, aes(x=Completion.Time, y=Part.B.Score)) + geom_point() + geom_smooth()
 #completion time x part C score
 ggplot(dataset, aes(x=Completion.Time, y=Part.C.Score)) + geom_point() + geom_smooth()
+
+
+#completion time x part A score x Gender
+ggplot(dataset, aes(x=Completion.Time, y=Part.A.Score, color=Gender)) + geom_point() + geom_smooth() + facet_wrap(~ Gender)
+#completion time x part B score x Gender
+ggplot(dataset, aes(x=Completion.Time, y=Part.B.Score, color=Gender)) + geom_point() + geom_smooth() + facet_wrap(~ Gender)
+#completion time x part C score x Gender
+ggplot(dataset, aes(x=Completion.Time, y=Part.C.Score, color=Gender)) + geom_point() + geom_smooth() + facet_wrap(~ Gender)
+
+
+#completion time x part A score x Location
+ggplot(dataset, aes(x=Completion.Time, y=Part.A.Score, color=Location)) + geom_point() + geom_smooth() + facet_wrap(~ Location)
+#completion time x part B score x Gender
+ggplot(dataset, aes(x=Completion.Time, y=Part.B.Score, color=Location)) + geom_point() + geom_smooth() + facet_wrap(~ Location)
+#completion time x part C score x Gender
+ggplot(dataset, aes(x=Completion.Time, y=Part.C.Score, color=Location)) + geom_point() + geom_smooth() + facet_wrap(~ Location)
 
 
 #gender x completion time x location
