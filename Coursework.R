@@ -1,22 +1,22 @@
 library(readr)
 library(ggplot2)
 library(reshape2)
-dataset <- read_csv("Documents/GitHub/DataAnalyticsCW/dataset.csv")
-#dataset <- read_csv("GitHub/DataAnalyticsCW/dataset.csv")
+#dataset <- read_csv("Documents/GitHub/DataAnalyticsCW/dataset.csv")
+dataset <- read_csv("GitHub/DataAnalyticsCW/dataset.csv")
 View(dataset)
 print(dataset)
 
 #graphs that show something
 #Age Band x part A score
-ggplot(dataset, aes(x=Age.Band, y=Part.A.Score)) + geom_boxplot()
+ggplot(dataset, aes(x=Age.Band, y=Part.A.Score)) + geom_boxplot() + theme_bw() + labs(title="Boxplot Showing How Different Age Bands Scored In Part A", x="Age Band", y="Part A Score")
 #Age x part B score
-ggplot(dataset, aes(x=Age, y=Part.B.Score)) + geom_point() + geom_smooth()
+ggplot(dataset, aes(x=Age, y=Part.B.Score)) + geom_point() + geom_smooth() + theme_bw() + labs(title="Scatterplot Showing How Part B Scores Change With Age", x="Age", y="Part B Score")
 #Age x completion time x gender 
-ggplot(dataset, aes(x=Age, y=Completion.Time, color=Gender)) + geom_point() + geom_smooth() + facet_wrap(~ Gender)
+ggplot(dataset, aes(x=Age, y=Completion.Time, color=Gender)) + geom_smooth() + facet_wrap(~ Gender) + theme_bw() + labs(title="Line Graph showing how completion time changes with age, split by gender", x="Age", y="Completion Time")
 #Age x part C score x location
-ggplot(dataset, aes(x=Age, y=Part.C.Score, color=Location)) + geom_point() + geom_smooth() + facet_wrap(~ Location)
+ggplot(dataset, aes(x=Age, y=Part.C.Score, color=Location)) + geom_smooth() + facet_wrap(~ Location) + theme_bw() + labs(title="Line Graph showing how part c scores vary with age, split by location", x="Age", y="Part C Score")
 #completion time x part B score x Gender
-ggplot(dataset, aes(x=Completion.Time, y=Part.B.Score, color=Gender)) + geom_point() + geom_smooth() + facet_wrap(~ Gender)
+ggplot(dataset, aes(x=Completion.Time, y=Part.B.Score, color=Gender)) + geom_smooth() + facet_wrap(~ Gender) + theme_bw() + labs(title="Line Graph showing how completion time and part b score, split by gender", x="Completion Time", y="Part B Score")
 
 
 #count completion time
