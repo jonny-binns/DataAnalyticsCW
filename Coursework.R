@@ -1,8 +1,8 @@
 library(readr)
 library(ggplot2)
 library(reshape2)
-dataset <- read_csv("Documents/GitHub/DataAnalyticsCW/dataset.csv")
-#dataset <- read_csv("GitHub/DataAnalyticsCW/dataset.csv")
+#dataset <- read_csv("Documents/GitHub/DataAnalyticsCW/dataset.csv")
+dataset <- read_csv("GitHub/DataAnalyticsCW/dataset.csv")
 View(dataset)
 print(dataset)
 
@@ -12,15 +12,15 @@ ggplot(dataset, aes(x=reorder(Age.Band, Part.A.Score, fun=median), y=Part.A.Scor
 #Age x part B score
 ggplot(dataset, aes(x=Age, y=Part.B.Score)) + geom_point() + theme_bw() + xlim(0, 100) + ylim(0, 100) + labs(title="Scatterplot Showing How Part B Scores Change With Age", x="Age", y="Part B Score")
 #Age Band x completion time x gender 
-ggplot(dataset, aes(x=reorder(Age.Band, Completion.Time, fun=median), y=Completion.Time, fill=Gender)) + geom_bar(stat="summary", fun.y=median) + facet_wrap(~ Gender) + labs(title="Bar Chart showing the Median Completion Time for Each Age Band, Split By Gender", x="Age Band", y="Median Completion Time")
+ggplot(dataset, aes(x=reorder(Age.Band, Completion.Time, fun=median), y=Completion.Time, fill=Gender)) + geom_bar(stat="summary", fun.y=median) + facet_wrap(~ Gender) + theme_bw() + labs(title="Bar Chart showing the Median Completion Time for Each Age Band in Each Gender", x="Age Band", y="Median Completion Time")
 #Age x part C score x location
-ggplot(dataset, aes(x=Age, y=Part.C.Score, color=Location)) + geom_point() + facet_wrap(~ Location) + theme_bw() + xlim(0, 100) + labs(title="Point Chart Showing Sow Part C Scores Vary With Age, Split By Location", x="Age", y="Part C Score")
+ggplot(dataset, aes(x=Age, y=Part.C.Score, color=Location)) + geom_point() + facet_wrap(~ Location) + theme_bw() + xlim(0, 100) + labs(title="Point Chart Showing How Part C Scores Vary With Age, in Each Location", x="Age", y="Part C Score")
 #completion time x part B score x Gender
-ggplot(dataset, aes(x=Completion.Time, y=Part.B.Score, color=Gender)) + geom_line(stat="summary", fun=median) + facet_wrap(~ Gender) + ylim(0,100) + labs(title="Line Graph Ghowing How Median Completion Time Vaires With Part B Score, Split By Gender", x="Median Completion Time", y="Part B Score")
+ggplot(dataset, aes(x=Completion.Time, y=Part.B.Score, color=Gender)) + geom_line(stat="summary", fun=median) + facet_wrap(~ Gender) + ylim(0,100) + theme_bw() + labs(title="Line Graph Ghowing How Median Completion Time Vaires With Part B Score, Split By Gender", x="Median Completion Time", y="Part B Score")
 
 #Outlier graphs
 #Age x Part B Score
-ggplot(dataset, aes(x=Age, y=Part.B.Score)) + geom_point() + labs(title="Scatterplot Showing How Part B Scores Change With Age, Including Outliers", x="Age", y="Part B Score")
+ggplot(dataset, aes(x=Age, y=Part.B.Score)) + geom_point() + theme_bw() + labs(title="Scatterplot Showing How Part B Scores Change With Age, Including Outliers", x="Age", y="Part B Score")
 
 #count completion time
 ggplot(dataset, aes(x=Completion.Time)) + geom_histogram(binwidth = 5, color="black", fill="white")
